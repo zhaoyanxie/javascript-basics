@@ -38,12 +38,11 @@ function sortedUnion(arr1, arr2) {
     let returnArr = [];
     mergedArr = mergedArr.sort((a, b) => a - b);
     mergedArr.forEach((element, index, arr) => {
-        if (index > 0) {
+        if (index === 0) returnArr.push(element);
+        else {
             if (element !== arr[index - 1]) {
                 returnArr.push(element);
             }
-        } else {
-            returnArr.push(element);
         }
     });
     return returnArr;
