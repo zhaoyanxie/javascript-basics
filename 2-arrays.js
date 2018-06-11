@@ -35,11 +35,22 @@ assertEquals(sumEvenNumbers([10, 11, 12]), 22);
 // Write a Javascript function to compute the union of two arrays. the returned array should be sorted in ascending order (Sample input: union([1, 2, 3], [100, 2, 1, 10]), expected output: [1, 2, 3, 10, 100])
 function sortedUnion(arr1, arr2) {
     let mergedArr = arr1.concat(arr2);
-    mergedArr = mergedArr.map(ele => Number(ele)).sort((a, b) => a - b);
-    return mergedArr;
+    let returnArr = [];
+    mergedArr = mergedArr.sort((a, b) => a - b);
+    mergedArr.forEach((element, index, arr) => {
+        if (index > 0) {
+            if (element !== arr[index - 1]) {
+                returnArr.push(element);
+            }
+        } else {
+            returnArr.push(element);
+        }
+    });
+    return returnArr;
 }
 
 // Assertions (do not change)
 assertEquals(sortedUnion([1], [2]), [1, 2]);
 assertEquals(sortedUnion([1, 3], [2]), [1, 2, 3]);
 assertEquals(sortedUnion([1, 3], [11, 2]), [1, 2, 3, 11]);
+assertEquals(sortedUnion([1, 3, 2, 2], [11, 2]), [1, 2, 3, 11]);
