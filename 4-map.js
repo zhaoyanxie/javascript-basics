@@ -3,7 +3,7 @@ var assertEquals = require("./assert-helper");
 /* ---------------------- EXERCISE 0 ---------------------- */
 // define a function that takes in array of strings with every element converted to uppercase
 function convertToUpperCase(array) {
-  return array.map(char => char.toUpperCase());
+  return array.map(string => string.toUpperCase());
 }
 
 
