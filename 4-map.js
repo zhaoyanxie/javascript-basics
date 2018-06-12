@@ -3,7 +3,7 @@ var assertEquals = require("./assert-helper");
 /* ---------------------- EXERCISE 0 ---------------------- */
 // define a function that takes in array of strings with every element converted to uppercase
 function convertToUpperCase(array) {
-
+  return array.map(char => char.toUpperCase());
 }
 
 
@@ -15,7 +15,7 @@ assertEquals(convertToUpperCase(["hello", "gOOdBYE"]), ["HELLO", "GOODBYE"]);
 /* ---------------------- EXERCISE 1 ---------------------- */
 // define a function that multiplies all elements in an array by 10
 function multiplyBy10(array) {
-
+  return array.map(num => 10 * num);
 }
 
 
@@ -29,7 +29,7 @@ assertEquals(multiplyBy10([-1, 0, 1]), [-10, 0, 10]);
 // define a function that takes in an array objects and returns only an array of strings of the name field
 
 function onlyNames(array) {
-
+  return array.map(obj => obj.name);
 }
 
 // Assertions (do not change)
@@ -53,7 +53,21 @@ assertEquals(onlyNames(input), ["homer", "marge", "lisa"]);
 /* ---------------------- EXERCISE 3 ---------------------- */
 // define a function that removes any non-vowel character from words in an array
 function keepOnlyVowels(array) {
-  
+  const vowels = "aeiou";
+  return array.map(word => {
+    // Method 1:
+    //   return word.split("")
+    //     .map(char => {
+    //       if (vowels.indexOf(char) !== -1) 
+    //         return char;
+    //     })
+    //     .join("");
+    // })
+    // Method 2:
+    return word.split("")
+      .filter(char => vowels.indexOf(char) !== -1)
+      .join("");
+  });
 }
 
 
